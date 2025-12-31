@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <header class="d-flex justify-content-center align-items-center bg-dark sticky-top">
+        <h4 class="text-white text-center fw-bold  mt-3" 
+            style="font-family: 'Times New Roman', Times, serif; 
+                text-shadow: 2px 2px 10px rgba(255,255,255,0.7);">
+            🎉 HAPPY NEW YEAR 2026! 🎆
+        </h4>
+    </header>
+
+
+
+    <body>
+
+    <audio id="bgMusic" src="Restless-Heart-When-She-Cries.mp3" loop></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <div class="intro" id="intro">
+            <h1 id="yearText">2025</h1>
+            <button id="startBtn" class="btn btn-light btn-lg">
+                Celebrate 🎉
+            </button>
+        </div>
+
+        <div class="banner">
+             <canvas id="fireworks"></canvas>
+            <div class="slider" style ="--quantity: 8">
+                <div class="item" style="--position: 1">
+                    <img src="photos/1.jpg" alt="">
+                </div>
+
+                <div class="item" style="--position: 2">
+                    <img src="photos/2.jpg" alt="">
+                </div>
+
+                <div class="item" style="--position: 3">
+                    <img src="photos/3.jpg" alt="">
+                </div>
+
+                <div class="item" style="--position: 4">
+                    <img src="photos/4.jpg" alt="">
+                </div>
+
+                <div class="item" style="--position: 5">
+                    <img src="photos/5.jpg" alt="">
+                </div>
+
+                <div class="item" style="--position: 6">
+                    <img src="photos/6.jpg" alt="">
+                </div>
+
+                <div class="item" style="--position: 7">
+                    <img src="photos/7.jpg" alt="">
+                </div>
+
+                <div class="item" style="--position: 8">
+                    <img src="photos/8.jpg" alt="">
+                </div>        
+            </div>
+
+            <div class = "content text-white">
+                <h1>HAPPY NEW YEAR</h1>
+                <div class = "author">
+                    <h3>May all your wishes came true</h3>
+                    <h5>Have more wonderful years to come</h5>
+                </div>
+            </div>
+            
+            
+
+            
+
+        </div>
+
+        <script src="fireworks.js"></script>
+
+        <script>
+            const startBtn = document.getElementById("startBtn");
+            const yearText = document.getElementById("yearText");
+            const intro = document.getElementById("intro");
+            const slider = document.querySelector(".slider");
+            const bgMusic = document.getElementById("bgMusic");
+
+            startBtn.addEventListener("click", () => {
+
+                // year animation
+                yearText.classList.add("year-change");
+                setTimeout(() => {
+                    yearText.textContent = "2026";
+                    yearText.classList.remove("year-change");
+                }, 600);
+                
+                slider.classList.add("running");
+                // slider animation
+                slider.classList.add("slide-down");
+
+                // hide intro
+                setTimeout(() => {
+                    intro.classList.add("hide");
+                }, 1200);
+
+                // 🎆 START FIREWORKS
+                if (!fireworksActive) {
+                    fireworksActive = true;
+                    animate();
+                }
+
+                bgMusic.play().catch(err => {
+                console.log("Music blocked:", err);
+                });
+            });
+
+        </script>
+    </body>
+
+
+</html>
